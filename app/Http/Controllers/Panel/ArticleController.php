@@ -71,11 +71,11 @@ class ArticleController extends Controller
             'title' => $request->title,
             'sub_title' => $request->sub_title,
             'description' => $request->description,
-            'monotag' => Str::upper($request->monotag),
-            'ditag' => Str::upper($request->ditag),
-            'tritag' => Str::upper($request->tritag),
-            'slug' => Str::lower($request->slug),
-            'image' => $image_url ?? null,
+            'monotag' => $request->monotag,
+            'ditag' => $request->ditag,
+            'tritag' => $request->tritag,
+            'slug' => $request->slug,
+            'image' => $image_url,
             'category_id' => 1,
             'full_text' => $request->full_text,
             'status' => 1
@@ -113,7 +113,9 @@ class ArticleController extends Controller
     public function statusUpdate(Request $request)
     {
         $update = $request->state;
-        $update_check = $update == "false" ? '0' : '1';
+
+        dd($request->id);
+        $update_check = $update === 'true' ? 1 : 0;
 
         Article::where('id', $request->id)->update(['status' => $update_check]);
         return response(['error' => false, 'status' => $update]);

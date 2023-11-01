@@ -133,17 +133,6 @@
                         </span>
                             </div>
                         </div>
-
-                        <div class="form-group">
-                            <label for="durum">Durum</label>
-                            @php
-                                $status = $article->status ?? 1;
-                            @endphp
-                            <select class="form-control" id="durum" name="status">
-                                <option value="1" {{$status === 1 ? 'selected' : ''}}>Aktif</option>
-                                <option value="0" {{$status === 0 ? 'selected' : ''}}>Pasif</option>
-                            </select>
-                        </div>
                         <button type="submit" class="btn btn-primary mr-2">Kaydet</button>
                         <button class="btn btn-light">İptal</button>
                     </form>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Panel\AuthController;
 use App\Http\Controllers\Panel\DashboardController;
 use App\Http\Controllers\Panel\ArticleController;
 use Illuminate\Support\Facades\Route;

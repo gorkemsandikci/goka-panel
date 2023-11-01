@@ -25,11 +25,11 @@ class ArticleRequest extends FormRequest
             'title' => 'required',
             'sub_title' => 'required',
             'description' => 'required',
-            'monotag' => 'required',
-            'ditag' => 'required',
-            'tritag' => 'required',
-            'slug' => 'required',
-            'image' => 'required',
+            'monotag' => 'nullable',
+            'ditag' => 'nullable',
+            'tritag' => 'nullable',
+            'slug' => 'nullable',
+            'image' => 'nullable',
             'category_id' => 'nullable',
             'full_text' => 'required',
         ];
@@ -41,12 +41,6 @@ class ArticleRequest extends FormRequest
             'title.required' => 'title alanı zorunludur',
             'sub_title.required' => 'sub_title alanı zorunludur',
             'description.required' => 'description alanı zorunludur',
-            'monotag.required' => 'monotag alanı zorunludur',
-            'ditag.required' => 'ditag alanı zorunludur',
-            'tritag.required' => 'tritag alanı zorunludur',
-            'slug.required' => 'slug alanı zorunludur',
-            'image.required' => 'image alanı zorunludur',
-            'category_id.required' => 'category_id alanı zorunludur',
             'full_text.required' => 'full_text alanı zorunludur'
         ];
     }

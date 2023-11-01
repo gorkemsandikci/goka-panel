@@ -22,7 +22,6 @@
                                 <th>Görsel</th>
                                 <th>Başlık</th>
                                 <th>Kısa Açıklama</th>
-                                <th>Durum</th>
                                 <th>Düzenle</th>
                             </tr>
                             </thead>
@@ -36,15 +35,7 @@
                                         <td>{{ $item->title }}</td>
 
                                         <td>{{ $item->sub_title ?? '' }}</td>
-                                        <td>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" class="durum" data-toggle="toggle"
-                                                           data-on="Aktif"
-                                                           data-off="Pasif" {{ $item->status === 1 ? 'checked' : '' }}>
-                                                </label>
-                                            </div>
-                                        </td>
+
                                         <td class="d-flex">
                                             <a class="btn btn-primary mr-2"
                                                href="{{ route('panel.article.edit', $item->id) }}">Düzenle</a>
@@ -72,29 +63,6 @@
 
 @section('customjs')
     <script>
-        $(document).on('change', '.durum', function (e) {
-            id = $(this).closest('.item').attr('item-id');
-            state = $(this).prop('checked');
-            $.ajax({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-                },
-                type: "POST",
-                url: "{{route('panel.article.status')}}",
-                data: {
-                    id: id,
-                    state: state
-                },
-                success: function (response) {
-                    if (response.status == 'true') {
-                        alertify.success("Makale Aktif Edildi");
-                    } else {
-                        alertify.error("Makale Pasif Edildi")
-                    }
-                }
-            });
-        });
-
         $(document).on('click', '.sil-btn', function (e) {
             e.preventDefault();
             var item = $(this).closest('.item');
