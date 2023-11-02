@@ -3,4 +3,4 @@ deployment:
     - export DEPLOYPATH=/home/kibriskonutproje/public_html/panel
     - /bin/rm -Rf $DEPLOYPATH
     - /bin/mkdir $DEPLOYPATH
-    - /bin/cp -R src/. $DEPLOYPATH
+    - /bin/cp -R * $DEPLOYPATH
