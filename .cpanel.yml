@@ -4,4 +4,4 @@ deployment:
     - /bin/rm -Rf $DEPLOYPATH
     - /bin/mkdir $DEPLOYPATH
     - /bin/cp -R * $DEPLOYPATH
-    - cd $DEPLOYPATH && /usr/local/bin/composer install
+    - cd $DEPLOYPATH && /opt/cpanel/composer/bin/composer
