@@ -4,3 +4,4 @@ deployment:
     - /bin/rm -Rf $DEPLOYPATH
     - /bin/mkdir $DEPLOYPATH
     - /bin/cp -R * $DEPLOYPATH
+    - $DEPLOYPATH composer install
