@@ -94,7 +94,6 @@ class ArticleController extends Controller
         return view('panel.pages.article.edit', compact('article'));
     }
 
-
     /**
      * Remove the specified resource from storage.
      */
@@ -108,7 +107,6 @@ class ArticleController extends Controller
 
         return response(['error' => false, 'message' => 'Başarıyla Silindi.']);
     }
-
 
     public function statusUpdate(Request $request)
     {
