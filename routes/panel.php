@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Panel\DashboardController;
 use App\Http\Controllers\Panel\ArticleController;
+use App\Http\Controllers\Panel\PostController;
 use App\Http\Controllers\Panel\WorldNewsController;
 use Illuminate\Support\Facades\Route;
 
@@ -38,6 +39,16 @@ Route::group(['middleware' => ['panelsetting', 'auth'], 'prefix' => 'panel', 'as
         Route::put('/{id}/update', [WorldNewsController::class, 'update'])->name('world-news.update');
         Route::delete('/destroy', [WorldNewsController::class, 'destroy'])->name('world-news.destroy');
         Route::post('/status-update', [WorldNewsController::class, 'statusUpdate'])->name('world-news.status');
+    });
+
+    Route::group(['prefix' => 'posts'], function () {
+        Route::get('', [PostController::class, 'index'])->name('post.index');
+        Route::get('/create', [PostController::class, 'create'])->name('post.create');
+        Route::get('/{id}/edit', [PostController::class, 'edit'])->name('post.edit');
+        Route::post('/store', [PostController::class, 'store'])->name('post.store');
+        Route::put('/{id}/update', [PostController::class, 'update'])->name('post.update');
+        Route::delete('/destroy', [PostController::class, 'destroy'])->name('post.destroy');
+        Route::post('/status-update', [PostController::class, 'statusUpdate'])->name('post.status');
     });
 
 });
